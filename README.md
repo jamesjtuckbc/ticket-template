@@ -6,11 +6,11 @@ This is a Ticket Template to make formatting support issues easier
 
 ## Table of Contents
 
-[Installation](#Installation)
-[Usage](#Usage)
-[License](#License)
-[Tests](#Tests)
-[Questions](#Questions)
+[Installation](#Installation)<br />
+[Usage](#Usage)<br />
+[License](#License)<br />
+[Tests](#Tests)<br />
+[Questions](#Questions)<br />
 
 ## Installation
 
