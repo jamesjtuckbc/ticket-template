@@ -11,41 +11,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="bg-dark">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-4 col-md-7 col-sm-12">
+
+          <div class="form-check form-switch float-end">
+            <input class="form-check-input" type="checkbox" id="darkMode" checked>
+            <label class="form-check-label text-light" for="darkMode">Dark Mode</label>
+          </div>
+
           <form>
             <div class="mb-2">
-              <label for="dealerName" class="form-label"
+              <label for="dealerName" class="form-label text-light"
                 >Dealership Name:</label
               >
               <input type="text" class="form-control" id="dealerName" />
             </div>
             <div class="mb-2">
-              <label for="dpid" class="form-label">DPID:</label>
+              <label for="dpid" class="form-label text-light">DPID:</label>
               <input type="text" class="form-control" id="dpid" />
             </div>
             <div class="mb-2">
-              <label for="contactName" class="form-label">Contact Name:</label>
+              <label for="contactName" class="form-label text-light">Contact Name:</label>
               <input type="text" class="form-control" id="contactName" />
             </div>
             <div class="mb-2 row">
               <div class="col-6">
-                <label for="contactPhone" class="form-label"
+                <label for="contactPhone" class="form-label text-light"
                   >Contact Phone:</label
                 >
                 <input type="tel" class="form-control" id="contactPhone" />
               </div>
               <div class="col-6">
-                <label for="contactEmail" class="form-label"
+                <label for="contactEmail" class="form-label text-light"
                   >Contact Email:</label
                 >
                 <input type="email" class="form-control" id="contactEmail" />
               </div>
             </div>
             <div class="mb-2">
-              <label for="issue" class="form-label">Issue:</label>
+              <label for="issue" class="form-label text-light">Issue:</label>
               <textarea
                 rows="3"
                 type="text"
@@ -54,7 +60,7 @@
               ></textarea>
             </div>
             <div class="mb-2">
-              <label for="reproSteps" class="form-label">Repro Steps:</label>
+              <label for="reproSteps" class="form-label text-light">Repro Steps:</label>
               <textarea
                 rows="3"
                 type="text"
@@ -63,7 +69,7 @@
               ></textarea>
             </div>
             <div class="mb-2">
-              <label for="conclusion" class="form-label">Conclusion:</label>
+              <label for="conclusion" class="form-label text-light">Conclusion:</label>
               <textarea
                 rows="3"
                 type="text"
@@ -72,9 +78,10 @@
               ></textarea>
             </div>
             <button
+            id="copyBtn"
               type="button"
               onclick="copyFunction()"
-              class="btn btn-primary"
+              class="btn btn-light"
             >
               Copy
             </button>
@@ -100,6 +107,26 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      const darkMode = $('#darkMode');
+      const formLabels = $('.form-label');
+      const darkLabel = $('.form-check-label');
+      const body = $('body');
+      const copyBtn = $('#copyBtn');
+      darkMode.change(function() {
+        if (!$(this).is(':checked')) {
+          formLabels.removeClass('text-light');
+          darkLabel.removeClass('text-light');
+          body.removeClass('bg-dark');
+          copyBtn.removeClass('btn-light');
+          copyBtn.addClass('btn-dark');
+        } else {
+          formLabels.addClass('text-light');
+          darkLabel.addClass('text-light');
+          body.addClass('bg-dark');
+          copyBtn.removeClass('btn-dark');
+          copyBtn.addClass('btn-light');
+        }
+      })
       function copyFunction() {
         event.preventDefault();
         // const copyText = document.getElementById(id);
