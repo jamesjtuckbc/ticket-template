@@ -14,7 +14,7 @@ This is a Ticket Template to make formatting support issues easier
 
 ## Installation
 
-Download or fork the repo and open notes.html in your browser
+Download or fork the repo and open index.html in your browser
 
 ## Usage
 
