@@ -18,7 +18,7 @@ Download or fork the repo and open index.html in your browser
 
 ## Usage
 
-Enter desired info and then clilk the "Copy" button. Then paste your notes in the desired location
+Enter desired info and then click the "Copy" button. Then paste your notes in the desired location
 
 ## License
 

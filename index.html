@@ -21,7 +21,7 @@
             <label class="form-check-label text-light" for="darkMode">Dark Mode</label>
           </div>
 
-          <form>
+          <form id="form">
             <div class="mb-2">
               <label for="dealerName" class="form-label text-light"
                 >Dealership Name:</label
@@ -85,6 +85,14 @@
             >
               Copy
             </button>
+            <button
+            id="clearBtn"
+              type="button"
+              onclick="clearFunction()"
+              class="btn btn-light"
+            >
+              Clear
+            </button>
           </form>
         </div>
       </div>
@@ -112,6 +120,7 @@
       const darkLabel = $('.form-check-label');
       const body = $('body');
       const copyBtn = $('#copyBtn');
+      const clearBtn = $('#clearBtn');
       darkMode.change(function() {
         if (!$(this).is(':checked')) {
           formLabels.removeClass('text-light');
@@ -119,18 +128,33 @@
           body.removeClass('bg-dark');
           copyBtn.removeClass('btn-light');
           copyBtn.addClass('btn-dark');
+          clearBtn.removeClass('btn-light');
+          clearBtn.addClass('btn-dark');
         } else {
           formLabels.addClass('text-light');
           darkLabel.addClass('text-light');
           body.addClass('bg-dark');
           copyBtn.removeClass('btn-dark');
           copyBtn.addClass('btn-light');
+          clearBtn.removeClass('btn-dark');
+          clearBtn.addClass('btn-light');
         }
-      })
+      });
+
+      function clearFunction() {
+        event.preventDefault();
+        $("#dealerName").val('');
+        $("#dpid").val('');
+        $("#contactName").val('');
+        $("#contactPhone").val('');
+        $("#contactEmail").val('');
+        $("#issue").val('');
+        $("#reproSteps").val('');
+        $("#conclusion").val('');
+      }
+
       function copyFunction() {
         event.preventDefault();
-        // const copyText = document.getElementById(id);
-        const copyText = $("#dealerName").val();
         const dealerName = $("#dealerName").val();
         const dpid = $("#dpid").val();
         const contactName = $("#contactName").val();
@@ -142,7 +166,6 @@
         const copyThis = $("#copyThis");
 
         copyThis.empty();
-        // copyText.select();
 
         // document.execCommand("copy");
         copyThis.append(
