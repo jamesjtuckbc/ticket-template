@@ -15,10 +15,16 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-4 col-md-7 col-sm-12">
-
           <div class="form-check form-switch float-end">
-            <input class="form-check-input" type="checkbox" id="darkMode" checked>
-            <label class="form-check-label text-light" for="darkMode">Dark Mode</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="darkMode"
+              checked
+            />
+            <label class="form-check-label text-light" for="darkMode"
+              >Dark Mode</label
+            >
           </div>
 
           <form id="form">
@@ -26,28 +32,30 @@
               <label for="dealerName" class="form-label text-light"
                 >Dealership Name:</label
               >
-              <input type="text" class="form-control" id="dealerName" />
+              <input type="text" class="form-control bg-dark text-light" id="dealerName" />
             </div>
             <div class="mb-2">
               <label for="dpid" class="form-label text-light">DPID:</label>
-              <input type="text" class="form-control" id="dpid" />
+              <input type="text" class="form-control bg-dark text-light" id="dpid" />
             </div>
             <div class="mb-2">
-              <label for="contactName" class="form-label text-light">Contact Name:</label>
-              <input type="text" class="form-control" id="contactName" />
+              <label for="contactName" class="form-label text-light"
+                >Contact Name:</label
+              >
+              <input type="text" class="form-control bg-dark text-light" id="contactName" />
             </div>
             <div class="mb-2 row">
               <div class="col-6">
                 <label for="contactPhone" class="form-label text-light"
                   >Contact Phone:</label
                 >
-                <input type="tel" class="form-control" id="contactPhone" />
+                <input type="tel" class="form-control bg-dark text-light" id="contactPhone" />
               </div>
               <div class="col-6">
                 <label for="contactEmail" class="form-label text-light"
                   >Contact Email:</label
                 >
-                <input type="email" class="form-control" id="contactEmail" />
+                <input type="email" class="form-control bg-dark text-light" id="contactEmail" />
               </div>
             </div>
             <div class="mb-2">
@@ -55,30 +63,34 @@
               <textarea
                 rows="3"
                 type="text"
-                class="form-control"
+                class="form-control bg-dark text-light"
                 id="issue"
               ></textarea>
             </div>
             <div class="mb-2">
-              <label for="reproSteps" class="form-label text-light">Repro Steps:</label>
+              <label for="reproSteps" class="form-label text-light"
+                >Repro Steps:</label
+              >
               <textarea
                 rows="3"
                 type="text"
-                class="form-control"
+                class="form-control bg-dark text-light"
                 id="reproSteps"
               ></textarea>
             </div>
             <div class="mb-2">
-              <label for="conclusion" class="form-label text-light">Conclusion:</label>
+              <label for="conclusion" class="form-label text-light"
+                >Conclusion:</label
+              >
               <textarea
                 rows="3"
                 type="text"
-                class="form-control"
+                class="form-control bg-dark text-light"
                 id="conclusion"
               ></textarea>
             </div>
             <button
-            id="copyBtn"
+              id="copyBtn"
               type="button"
               onclick="copyFunction()"
               class="btn btn-light"
@@ -86,7 +98,7 @@
               Copy
             </button>
             <button
-            id="clearBtn"
+              id="clearBtn"
               type="button"
               onclick="clearFunction()"
               class="btn btn-light"
@@ -115,42 +127,74 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      const darkMode = $('#darkMode');
-      const formLabels = $('.form-label');
-      const darkLabel = $('.form-check-label');
-      const body = $('body');
-      const copyBtn = $('#copyBtn');
-      const clearBtn = $('#clearBtn');
-      darkMode.change(function() {
-        if (!$(this).is(':checked')) {
-          formLabels.removeClass('text-light');
-          darkLabel.removeClass('text-light');
-          body.removeClass('bg-dark');
-          copyBtn.removeClass('btn-light');
-          copyBtn.addClass('btn-dark');
-          clearBtn.removeClass('btn-light');
-          clearBtn.addClass('btn-dark');
+      const darkMode = $("#darkMode");
+      const formLabels = $(".form-label");
+      const darkLabel = $(".form-check-label");
+      const body = $("body");
+      const copyBtn = $("#copyBtn");
+      const clearBtn = $("#clearBtn");
+      darkMode.change(function () {
+        if (!$(this).is(":checked")) {
+          formLabels.removeClass("text-light");
+          darkLabel.removeClass("text-light");
+          body.removeClass("bg-dark");
+          copyBtn.removeClass("btn-light");
+          copyBtn.addClass("btn-dark");
+          clearBtn.removeClass("btn-light");
+          clearBtn.addClass("btn-dark");
+          $("#dealerName").removeClass("bg-dark");
+          $("#dpid").removeClass("bg-dark");
+          $("#contactName").removeClass("bg-dark");
+          $("#contactPhone").removeClass("bg-dark");
+          $("#contactEmail").removeClass("bg-dark");
+          $("#issue").removeClass("bg-dark");
+          $("#reproSteps").removeClass("bg-dark");
+          $("#conclusion").removeClass("bg-dark");
+          $("#dealerName").removeClass("text-light");
+          $("#dpid").removeClass("text-light");
+          $("#contactName").removeClass("text-light");
+          $("#contactPhone").removeClass("text-light");
+          $("#contactEmail").removeClass("text-light");
+          $("#issue").removeClass("text-light");
+          $("#reproSteps").removeClass("text-light");
+          $("#conclusion").removeClass("text-light");
         } else {
-          formLabels.addClass('text-light');
-          darkLabel.addClass('text-light');
-          body.addClass('bg-dark');
-          copyBtn.removeClass('btn-dark');
-          copyBtn.addClass('btn-light');
-          clearBtn.removeClass('btn-dark');
-          clearBtn.addClass('btn-light');
+          formLabels.addClass("text-light");
+          darkLabel.addClass("text-light");
+          body.addClass("bg-dark");
+          copyBtn.removeClass("btn-dark");
+          copyBtn.addClass("btn-light");
+          clearBtn.removeClass("btn-dark");
+          clearBtn.addClass("btn-light");
+          $("#dealerName").addClass("bg-dark");
+          $("#dpid").addClass("bg-dark");
+          $("#contactName").addClass("bg-dark");
+          $("#contactPhone").addClass("bg-dark");
+          $("#contactEmail").addClass("bg-dark");
+          $("#issue").addClass("bg-dark");
+          $("#reproSteps").addClass("bg-dark");
+          $("#conclusion").addClass("bg-dark");
+          $("#dealerName").addClass("text-light");
+          $("#dpid").addClass("text-light");
+          $("#contactName").addClass("text-light");
+          $("#contactPhone").addClass("text-light");
+          $("#contactEmail").addClass("text-light");
+          $("#issue").addClass("text-light");
+          $("#reproSteps").addClass("text-light");
+          $("#conclusion").addClass("text-light");
         }
       });
 
       function clearFunction() {
         event.preventDefault();
-        $("#dealerName").val('');
-        $("#dpid").val('');
-        $("#contactName").val('');
-        $("#contactPhone").val('');
-        $("#contactEmail").val('');
-        $("#issue").val('');
-        $("#reproSteps").val('');
-        $("#conclusion").val('');
+        $("#dealerName").val("");
+        $("#dpid").val("");
+        $("#contactName").val("");
+        $("#contactPhone").val("");
+        $("#contactEmail").val("");
+        $("#issue").val("");
+        $("#reproSteps").val("");
+        $("#conclusion").val("");
       }
 
       function copyFunction() {
