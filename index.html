@@ -109,6 +109,17 @@
                 id="conclusion"
               ></textarea>
             </div>
+            <div class="mb-2">
+              <label for="notes" class="form-label text-light"
+                >Additional Notes:</label
+              >
+              <textarea
+                rows="3"
+                type="text"
+                class="form-control bg-dark text-light"
+                id="notes"
+              ></textarea>
+            </div>
             <button
               id="copyBtn"
               type="button"
@@ -170,6 +181,7 @@
           $("#issue").removeClass("bg-dark");
           $("#reproSteps").removeClass("bg-dark");
           $("#conclusion").removeClass("bg-dark");
+          $("#notes").removeClass("bg-dark");
           $("#dealerName").removeClass("text-light");
           $("#dpid").removeClass("text-light");
           $("#contactName").removeClass("text-light");
@@ -178,6 +190,7 @@
           $("#issue").removeClass("text-light");
           $("#reproSteps").removeClass("text-light");
           $("#conclusion").removeClass("text-light");
+          $("#notes").removeClass("text-light");
         } else {
           formLabels.addClass("text-light");
           darkLabel.addClass("text-light");
@@ -194,6 +207,7 @@
           $("#issue").addClass("bg-dark");
           $("#reproSteps").addClass("bg-dark");
           $("#conclusion").addClass("bg-dark");
+          $("#notes").addClass("bg-dark");
           $("#dealerName").addClass("text-light");
           $("#dpid").addClass("text-light");
           $("#contactName").addClass("text-light");
@@ -202,6 +216,7 @@
           $("#issue").addClass("text-light");
           $("#reproSteps").addClass("text-light");
           $("#conclusion").addClass("text-light");
+          $("#notes").addClass("text-light");
         }
       });
 
@@ -215,6 +230,7 @@
         $("#issue").val("");
         $("#reproSteps").val("");
         $("#conclusion").val("");
+        $("#notes").val("");
       }
 
       function copyFunction() {
@@ -227,13 +243,14 @@
         const issue = $("#issue").val();
         const reproSteps = $("#reproSteps").val();
         const conclusion = $("#conclusion").val();
+        const notes = $("#notes").val();
         const copyThis = $("#copyThis");
 
         copyThis.empty();
 
         // document.execCommand("copy");
         copyThis.append(
-          `Dealer Name: ${dealerName}<br />DPID: ${dpid}<br />Dealership Contact: ${contactName}<br />Contact info: ${contactPhone} | ${contactEmail}<br /><br />Issue:<br />${issue}<br /><br />Steps to Reproduce:<br />${reproSteps}<br /><br />Conclusion:<br />${conclusion}`
+          `Dealer Name: ${dealerName}<br />DPID: ${dpid}<br />Dealership Contact: ${contactName}<br />Contact info: ${contactPhone} | ${contactEmail}<br /><br />Issue:<br />${issue}<br /><br />Steps to Reproduce:<br />${reproSteps}<br /><br />Conclusion:<br />${conclusion}<br /><br />Additonal Notes:<br />${notes}`
         );
 
         // copyThis.html().select();
