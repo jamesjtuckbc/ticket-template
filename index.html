@@ -34,7 +34,7 @@
               >
               <input
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="dealerName"
               />
             </div>
@@ -42,7 +42,7 @@
               <label for="dpid" class="form-label text-light">DPID:</label>
               <input
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="dpid"
               />
             </div>
@@ -52,7 +52,7 @@
               >
               <input
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="contactName"
               />
             </div>
@@ -63,7 +63,7 @@
                 >
                 <input
                   type="tel"
-                  class="form-control bg-dark text-light"
+                  class="form-control bg-dark text-light form-input"
                   id="contactPhone"
                 />
               </div>
@@ -73,7 +73,7 @@
                 >
                 <input
                   type="email"
-                  class="form-control bg-dark text-light"
+                  class="form-control bg-dark text-light form-input"
                   id="contactEmail"
                 />
               </div>
@@ -84,7 +84,7 @@
               >
               <input
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="vin"
               />
             </div>
@@ -93,7 +93,7 @@
               <textarea
                 rows="3"
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="issue"
               ></textarea>
             </div>
@@ -104,7 +104,7 @@
               <textarea
                 rows="3"
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="reproSteps"
               ></textarea>
             </div>
@@ -115,7 +115,7 @@
               <textarea
                 rows="3"
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="conclusion"
               ></textarea>
             </div>
@@ -126,7 +126,7 @@
               <textarea
                 rows="3"
                 type="text"
-                class="form-control bg-dark text-light"
+                class="form-control bg-dark text-light form-input"
                 id="notes"
               ></textarea>
             </div>
@@ -152,7 +152,6 @@
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3">
           <div id="copyThis" style="display: none">
-            <!-- <div id="copyThis"> -->
           </div>
         </div>
       </div>
@@ -174,6 +173,9 @@
       const body = $("body");
       const copyBtn = $("#copyBtn");
       const clearBtn = $("#clearBtn");
+      const formInput = $(".form-input");
+      const copyThis = $("#copyThis");
+
       darkMode.change(function () {
         if (!$(this).is(":checked")) {
           formLabels.removeClass("text-light");
@@ -183,26 +185,7 @@
           copyBtn.addClass("btn-dark");
           clearBtn.removeClass("btn-light");
           clearBtn.addClass("btn-dark");
-          $("#dealerName").removeClass("bg-dark");
-          $("#dpid").removeClass("bg-dark");
-          $("#contactName").removeClass("bg-dark");
-          $("#contactPhone").removeClass("bg-dark");
-          $("#contactEmail").removeClass("bg-dark");
-          $("#issue").removeClass("bg-dark");
-          $("#reproSteps").removeClass("bg-dark");
-          $("#conclusion").removeClass("bg-dark");
-          $("#notes").removeClass("bg-dark");
-          $("#vin").removeClass("bg-dark");
-          $("#dealerName").removeClass("text-light");
-          $("#dpid").removeClass("text-light");
-          $("#contactName").removeClass("text-light");
-          $("#contactPhone").removeClass("text-light");
-          $("#contactEmail").removeClass("text-light");
-          $("#issue").removeClass("text-light");
-          $("#reproSteps").removeClass("text-light");
-          $("#conclusion").removeClass("text-light");
-          $("#notes").removeClass("text-light");
-          $("#vin").removeClass("text-light");
+          formInput.removeClass("bg-dark text-light");
         } else {
           formLabels.addClass("text-light");
           darkLabel.addClass("text-light");
@@ -211,41 +194,13 @@
           copyBtn.addClass("btn-light");
           clearBtn.removeClass("btn-dark");
           clearBtn.addClass("btn-light");
-          $("#dealerName").addClass("bg-dark");
-          $("#dpid").addClass("bg-dark");
-          $("#contactName").addClass("bg-dark");
-          $("#contactPhone").addClass("bg-dark");
-          $("#contactEmail").addClass("bg-dark");
-          $("#issue").addClass("bg-dark");
-          $("#reproSteps").addClass("bg-dark");
-          $("#conclusion").addClass("bg-dark");
-          $("#notes").addClass("bg-dark");
-          $("#vin").addClass("bg-dark");
-          $("#dealerName").addClass("text-light");
-          $("#dpid").addClass("text-light");
-          $("#contactName").addClass("text-light");
-          $("#contactPhone").addClass("text-light");
-          $("#contactEmail").addClass("text-light");
-          $("#issue").addClass("text-light");
-          $("#reproSteps").addClass("text-light");
-          $("#conclusion").addClass("text-light");
-          $("#notes").addClass("text-light");
-          $("#vin").addClass("text-light");
+          formInput.addClass("bg-dark text-light");
         }
       });
 
       function clearFunction() {
         event.preventDefault();
-        $("#dealerName").val("");
-        $("#dpid").val("");
-        $("#contactName").val("");
-        $("#contactPhone").val("");
-        $("#contactEmail").val("");
-        $("#issue").val("");
-        $("#reproSteps").val("");
-        $("#conclusion").val("");
-        $("#notes").val("");
-        $("#vin").val("");
+        formInput.val("");
       }
 
       function copyFunction() {
@@ -260,17 +215,13 @@
         const reproSteps = $("#reproSteps").val();
         const conclusion = $("#conclusion").val();
         const notes = $("#notes").val();
-        const copyThis = $("#copyThis");
 
         copyThis.empty();
 
-        // document.execCommand("copy");
         copyThis.append(
-          `Dealer Name: ${dealerName}<br />DPID: ${dpid}<br />Dealership Contact: ${contactName}<br />Contact info: ${contactPhone} | ${contactEmail}<br /><br />Vin/StockNu:<br />${vin}<br /><br />Issue:<br />${issue}<br /><br />Steps to Reproduce:<br />${reproSteps}<br /><br />Conclusion:<br />${conclusion}<br /><br />Additional Notes:<br />${notes}`
+          `Dealer Name: ${dealerName}<br />DPID: ${dpid}<br />Dealership Contact: ${contactName}<br />Contact info: ${contactPhone} | ${contactEmail}<br /><br />Vin/StockNu: ${vin}<br /><br />Issue:<br />${issue}<br /><br />Steps to Reproduce:<br />${reproSteps}<br /><br />Conclusion:<br />${conclusion}<br /><br />Additional Notes:<br />${notes}`
         );
 
-        // copyThis.html().select();
-        // document.execCommand("copy");
         copyToClip(document.getElementById("copyThis").innerHTML);
       }
 
