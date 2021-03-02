@@ -79,6 +79,16 @@
               </div>
             </div>
             <div class="mb-2">
+              <label for="vin" class="form-label text-light"
+                >Vin/StockNum:</label
+              >
+              <input
+                type="text"
+                class="form-control bg-dark text-light"
+                id="vin"
+              />
+            </div>
+            <div class="mb-2">
               <label for="issue" class="form-label text-light">Issue:</label>
               <textarea
                 rows="3"
@@ -111,7 +121,7 @@
             </div>
             <div class="mb-2">
               <label for="notes" class="form-label text-light"
-                >Additional Notes:</label
+                >Additional Notes/Links:</label
               >
               <textarea
                 rows="3"
@@ -182,6 +192,7 @@
           $("#reproSteps").removeClass("bg-dark");
           $("#conclusion").removeClass("bg-dark");
           $("#notes").removeClass("bg-dark");
+          $("#vin").removeClass("bg-dark");
           $("#dealerName").removeClass("text-light");
           $("#dpid").removeClass("text-light");
           $("#contactName").removeClass("text-light");
@@ -191,6 +202,7 @@
           $("#reproSteps").removeClass("text-light");
           $("#conclusion").removeClass("text-light");
           $("#notes").removeClass("text-light");
+          $("#vin").removeClass("text-light");
         } else {
           formLabels.addClass("text-light");
           darkLabel.addClass("text-light");
@@ -208,6 +220,7 @@
           $("#reproSteps").addClass("bg-dark");
           $("#conclusion").addClass("bg-dark");
           $("#notes").addClass("bg-dark");
+          $("#vin").addClass("bg-dark");
           $("#dealerName").addClass("text-light");
           $("#dpid").addClass("text-light");
           $("#contactName").addClass("text-light");
@@ -217,6 +230,7 @@
           $("#reproSteps").addClass("text-light");
           $("#conclusion").addClass("text-light");
           $("#notes").addClass("text-light");
+          $("#vin").addClass("text-light");
         }
       });
 
@@ -231,6 +245,7 @@
         $("#reproSteps").val("");
         $("#conclusion").val("");
         $("#notes").val("");
+        $("#vin").val("");
       }
 
       function copyFunction() {
@@ -240,6 +255,7 @@
         const contactName = $("#contactName").val();
         const contactPhone = $("#contactPhone").val();
         const contactEmail = $("#contactEmail").val();
+        const vin = $("#vin").val();
         const issue = $("#issue").val();
         const reproSteps = $("#reproSteps").val();
         const conclusion = $("#conclusion").val();
@@ -250,7 +266,7 @@
 
         // document.execCommand("copy");
         copyThis.append(
-          `Dealer Name: ${dealerName}<br />DPID: ${dpid}<br />Dealership Contact: ${contactName}<br />Contact info: ${contactPhone} | ${contactEmail}<br /><br />Issue:<br />${issue}<br /><br />Steps to Reproduce:<br />${reproSteps}<br /><br />Conclusion:<br />${conclusion}<br /><br />Additional Notes:<br />${notes}`
+          `Dealer Name: ${dealerName}<br />DPID: ${dpid}<br />Dealership Contact: ${contactName}<br />Contact info: ${contactPhone} | ${contactEmail}<br /><br />Vin/StockNu:<br />${vin}<br /><br />Issue:<br />${issue}<br /><br />Steps to Reproduce:<br />${reproSteps}<br /><br />Conclusion:<br />${conclusion}<br /><br />Additional Notes:<br />${notes}`
         );
 
         // copyThis.html().select();
